@@ -1,5 +1,5 @@
 {% set name = "sqlalchemy-omnisci" %}
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6417e13ee1fad25ccc84c8f5af95ef1e239e3c5945064015ae5090e561190bb4
+  sha256: 0b1ced50ef47f2b218bf743c65c664398f4bb7c3e0a76607451fbd3c8cbf2cca
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv --no-deps"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
@@ -33,7 +33,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: 'OmniSci SQLAlchemy Driver'
+  summary: OmniSci SQLAlchemy Driver
   description: |
     OmniSci SQLAlchemy Driver
   doc_url: https://omnisci.github.io/sqlalchemy-omnisci
