@@ -11,13 +11,16 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
     - python >=3.6
     - pip
+    - setuptools
+    - setuptools-scm
+    - wheel
   run:
     - python >=3.6
     - sqlalchemy 1.*
