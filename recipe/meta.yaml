@@ -6,28 +6,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 0b1ced50ef47f2b218bf743c65c664398f4bb7c3e0a76607451fbd3c8cbf2cca
 
 build:
   noarch: python
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
     - wheel
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - sqlalchemy 1.*
     - pyomniscidb >=5.5.2
     - pyomnisci >=0.27.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - sqlalchemy_omnisci
 
